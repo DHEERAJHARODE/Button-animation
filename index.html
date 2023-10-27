@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            background-color: rgb(28, 44, 44);
+        }
+        .box{
+            /* border:2px solid crimson; */
+            border-radius: 10px;
+            background-color: rgb(29, 104, 100);
+            height: 6%;
+            width: 18%;
+            cursor: pointer;
+            transition: .5s;
+            overflow: hidden;
+            box-shadow: 1px 1px 20px black;
+        }
+        p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            line-height: 1.5;
+        }
+        .box-text{
+            position: relative;
+            left: -100%;
+            background-color: crimson;
+            height: 100%;
+            width: 100%;
+            transition: 0.9s;
+        }
+        .active{
+            left: 0;
+            transition: 0.9s;
+        }
+        @media (max-width:768px){
+            .box{
+                width: 40%;
+                height: 30%;
+            }
+        }
+        /* .box:hover{
+            transform: scale(105%);
+            transition: .9s;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="box-text">
+                <p>How are you ?</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btn=document.querySelector('.box');
+        console.log(btn);
+        const box=document.querySelector('.box-text');
+        console.log(box);
+        btn.addEventListener('mouseover',function(){
+            box.classList.add('active');
+        });
+        btn.addEventListener('mouseout',function(){
+            box.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
